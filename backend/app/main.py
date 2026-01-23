@@ -20,13 +20,19 @@ def create_application() -> FastAPI:
         redoc_url=f"{settings.API_V1_STR}/redoc"
     )
     
-    # Configure CORS
+    # Configure CORS with specific allowed origins
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=settings.BACKEND_CORS_ORIGINS,
+        allow_origins=[
+            "http://localhost:3000",
+            "http://localhost:8000",
+            "https://facebook-video-downloader-navy.vercel.app",
+            "https://f-down.vercel.app",
+        ],
         allow_credentials=True,
         allow_methods=["*"],
         allow_headers=["*"],
+        expose_headers=["*"],
     )
     
     # Include routers

@@ -13,8 +13,15 @@ class Settings(BaseSettings):
     VERSION: str = "1.0.0"
     DESCRIPTION: str = "API for downloading Facebook videos"
     
-    # CORS Settings
-    BACKEND_CORS_ORIGINS: List[str] = ["http://localhost:3000", "http://localhost:8000"]
+    # CORS Settings - Allow your Vercel frontend URLs
+    BACKEND_CORS_ORIGINS: List[str] = [
+        "http://localhost:3000",
+        "http://localhost:8000",
+        "https://facebook-video-downloader-navy.vercel.app",
+        "https://f-down.vercel.app",
+        # Also allow preview deployments
+        "https://*.vercel.app",
+    ]
     
     # Download Settings
     DOWNLOAD_DIR: Path = Path("downloads")
