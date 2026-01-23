@@ -3,25 +3,32 @@ import type { Metadata } from "next"
 import localFont from "next/font/local"
 import "./globals.css"
 
-const clarikaPro = localFont({
+const halenoir = localFont({
   src: [
     {
-      path: "./fonts/clarika-pro-geo-light.otf",
-      weight: "300",
+      path: "../public/fonts/Halenoir-Regular.otf",
+      weight: "400",
       style: "normal",
     },
     {
-      path: "./fonts/clarika-pro-geo-medium.otf",
+      path: "../public/fonts/Halenoir-Medium.otf",
       weight: "500",
       style: "normal",
     },
     {
-      path: "./fonts/clarika-pro-geo-semibold.otf",
+      path: "../public/fonts/Halenoir-SemiBold.otf",
       weight: "600",
       style: "normal",
     },
+  ],
+  variable: "--font-halenoir",
+  display: "swap",
+})
+
+const clarikaPro = localFont({
+  src: [
     {
-      path: "./fonts/clarika-pro-geo-bold.otf",
+      path: "../public/fonts/clarika-pro-geo-bold.otf",
       weight: "700",
       style: "normal",
     },
@@ -42,7 +49,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${clarikaPro.variable} antialiased`} style={{ fontFamily: 'var(--font-clarika), sans-serif' }}>{children}</body>
+      <body className={`${halenoir.variable} ${clarikaPro.variable} antialiased`} style={{ fontFamily: 'var(--font-halenoir), var(--font-clarika), sans-serif' }}>{children}</body>
     </html>
   )
 }
