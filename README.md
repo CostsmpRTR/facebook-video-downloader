@@ -209,8 +209,15 @@ NEXT_PUBLIC_API_URL=http://localhost:8000
 **Problem**: `Port 8000 already in use`
 - **Solution**: Change the port in the configuration or kill the process using port 8000
 
-**Problem**: `yt-dlp download error`
-- **Solution**: Update yt-dlp to the latest version: `pip install --upgrade yt-dlp`
+**Problem**: `yt-dlp download error` or `Cannot parse data`
+- **Solution**: This usually means Facebook has updated their page structure. Try these steps:
+  1. Update yt-dlp: `pip install --upgrade yt-dlp`
+  2. **For Facebook Reels**: Open the Reel in your browser and copy the full URL from the address bar after it loads (it will be like `https://www.facebook.com/reel/123456789`)
+  3. Use the direct video URL instead of the share link
+  4. If the issue persists, Facebook may have temporarily blocked automated downloads - try again later
+
+**Problem**: `Requested format is not available`
+- **Solution**: The app will automatically retry with the best available format. If this fails, try selecting "Best Quality" instead of a specific resolution.
 
 ### Frontend Issues
 
@@ -219,6 +226,21 @@ NEXT_PUBLIC_API_URL=http://localhost:8000
 
 **Problem**: CORS errors
 - **Solution**: Verify that `http://localhost:3000` is in the `BACKEND_CORS_ORIGINS` configuration
+
+## 📝 Known Issues & Limitations
+
+### Facebook Reels Support
+Facebook frequently updates their page structure, which can cause temporary parsing issues with Reels:
+
+**Workaround for Facebook Reels**:
+1. Open the Reel share link in your browser (e.g., `https://www.facebook.com/share/r/1EVJh9rZtg/`)
+2. Wait for it to redirect to the full URL
+3. Copy the full URL from your browser's address bar (should look like `https://www.facebook.com/reel/791802913691439`)
+4. Use the full URL in the downloader instead of the share link
+
+**Why this happens**: Facebook uses dynamic share links that redirect to the actual video. Sometimes yt-dlp cannot parse these redirects properly, especially when Facebook changes their HTML structure.
+
+**Status**: The app includes automatic fallback mechanisms, but some videos may still require the full URL approach above.
 
 ## 🔒 Privacy & Legal
 

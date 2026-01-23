@@ -18,9 +18,11 @@ export async function downloadVideo(url: string) {
 
     if (!response.ok) {
       const errorData = await response.json()
+      // Extract the detailed error message from the backend
+      const errorMessage = errorData.detail || errorData.message || "Failed to process video"
       return {
         success: false,
-        message: errorData.message || "Failed to process video",
+        message: errorMessage,
       }
     }
 
@@ -42,7 +44,7 @@ export async function downloadVideo(url: string) {
     console.error("Error processing video:", error)
     return {
       success: false,
-      message: "Failed to process video. Please try again.",
+      message: "Failed to connect to the server. Please make sure the backend is running.",
     }
   }
 }

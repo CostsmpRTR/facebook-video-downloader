@@ -5,7 +5,7 @@ This guide will help you get the Facebook Video Downloader running on your local
 ## 📋 Prerequisites
 
 Make sure you have these installed:
-- **Python 3.11+** → [Download](https://www.python.org/downloads/)
+- **Python 3.10+** → [Download](https://www.python.org/downloads/)
 - **Node.js 18+** → [Download](https://nodejs.org/)
 - **Git** → [Download](https://git-scm.com/)
 

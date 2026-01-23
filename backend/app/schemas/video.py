@@ -6,8 +6,8 @@ from pydantic import BaseModel, HttpUrl, Field
 class VideoFormat(BaseModel):
     """Video format information"""
     format_id: str
-    resolution: str
-    ext: str
+    resolution: Optional[str] = "unknown"  # Allow None and provide default
+    ext: str = "mp4"  # Provide default
     filesize: Optional[int] = None
     format_note: str = ""
 

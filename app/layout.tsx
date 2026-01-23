@@ -12,7 +12,6 @@ const quicksand = Quicksand({
 export const metadata: Metadata = {
   title: "Facebook Video Downloader",
   description: "Download videos from Facebook easily",
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({

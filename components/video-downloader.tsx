@@ -133,9 +133,26 @@ export default function VideoDownloader() {
       )}
 
       {status === "error" && (
-        <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-md flex items-start">
-          <AlertCircle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-          <p className="text-red-700 text-sm">{message}</p>
+        <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-md">
+          <div className="flex items-start">
+            <AlertCircle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
+            <div className="flex-1">
+              <div className="text-red-700 text-sm font-medium mb-2 whitespace-pre-line">{message}</div>
+              
+              {/* Show helpful tips for Facebook errors */}
+              {(message.includes("security measures") || message.includes("parse data") || message.includes("Reels") || message.includes("blocked")) && (
+                <div className="mt-3 p-3 bg-blue-50 border border-blue-200 rounded text-sm">
+                  <p className="font-medium text-blue-800 mb-2">ℹ️ Additional Help:</p>
+                  <ul className="list-disc list-inside space-y-1 text-blue-700 text-xs">
+                    <li>Facebook frequently blocks automated downloads</li>
+                    <li>Try different videos - some may work, others won't</li>
+                    <li>Public videos have better success rates than private ones</li>
+                    <li>Consider using browser extensions as an alternative</li>
+                  </ul>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       )}
 
@@ -161,27 +178,40 @@ export default function VideoDownloader() {
             <div className="mt-4">
               <h4 className="text-sm font-medium text-gray-700 mb-2">Select Quality:</h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {formats.map((format) => (
-                  <div
-                    key={format.format_id}
-                    className={`border rounded-md p-2 cursor-pointer flex items-center ${
-                      selectedFormat === format.format_id
-                        ? "border-[#1877F2] bg-blue-50"
-                        : "border-gray-200 hover:border-gray-300"
-                    }`}
-                    onClick={() => setSelectedFormat(format.format_id)}
-                  >
-                    <div className="flex-1">
-                      <p className="font-medium text-sm">
-                        {format.resolution} ({format.ext})
-                      </p>
-                      <p className="text-xs text-gray-500">
-                        {format.format_note} {format.filesize ? `- ${formatFileSize(format.filesize)}` : ""}
-                      </p>
+                {formats.map((format, index) => {
+                  const isRecommended = format.ext === 'mp4' && (format.format_note.includes('recommended') || index === 0)
+                  return (
+                    <div
+                      key={format.format_id}
+                      className={`border rounded-md p-2 cursor-pointer flex items-center ${
+                        selectedFormat === format.format_id
+                          ? "border-[#1877F2] bg-blue-50"
+                          : "border-gray-200 hover:border-gray-300"
+                      } ${isRecommended ? "ring-2 ring-green-400" : ""}`}
+                      onClick={() => setSelectedFormat(format.format_id)}
+                    >
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2">
+                          <p className="font-medium text-sm">
+                            {format.resolution} ({format.ext})
+                          </p>
+                          {isRecommended && (
+                            <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-medium">
+                              ✓ Recommended
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-xs text-gray-500">
+                          {format.format_note} {format.filesize ? `- ${formatFileSize(format.filesize)}` : ""}
+                        </p>
+                        {format.ext === 'mp4' && (
+                          <p className="text-xs text-green-600 mt-0.5">Compatible with all players</p>
+                        )}
+                      </div>
+                      {selectedFormat === format.format_id && <Check className="h-5 w-5 text-[#1877F2]" />}
                     </div>
-                    {selectedFormat === format.format_id && <Check className="h-5 w-5 text-[#1877F2]" />}
-                  </div>
-                ))}
+                  )
+                })}
               </div>
             </div>
           )}
